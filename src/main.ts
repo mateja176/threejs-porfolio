@@ -76,6 +76,8 @@ const mateja = new THREE.Mesh(
   new THREE.MeshBasicMaterial({ map: matejaTexture }),
 );
 scene.add(mateja);
+mateja.position.setZ(5);
+mateja.position.setX(2);
 
 const moonTexture = new THREE.TextureLoader().load(moonUrl);
 const normalTexture = new THREE.TextureLoader().load(normalUrl);
@@ -86,6 +88,8 @@ const moon = new THREE.Mesh(
     normalMap: normalTexture,
   }),
 );
+moon.position.setZ(30);
+moon.position.setX(-10);
 scene.add(moon);
 
 function animate() {
