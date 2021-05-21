@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import matejaUrl from './img/mateja.jpg';
 import spaceUrl from './img/space.jpg';
 import './style.css';
 
@@ -66,6 +67,13 @@ function addStar() {
 }
 
 Array(200).fill(0).forEach(addStar);
+
+const matejaTexture = new THREE.TextureLoader().load(matejaUrl);
+const mateja = new THREE.Mesh(
+  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.MeshBasicMaterial({ map: matejaTexture }),
+);
+scene.add(mateja);
 
 function animate() {
   requestAnimationFrame(animate);
