@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import matejaUrl from './img/mateja.jpg';
+import moonUrl from './img/moon.jpg';
+import normalUrl from './img/normal.jpg';
 import spaceUrl from './img/space.jpg';
 import './style.css';
 
@@ -74,6 +76,17 @@ const mateja = new THREE.Mesh(
   new THREE.MeshBasicMaterial({ map: matejaTexture }),
 );
 scene.add(mateja);
+
+const moonTexture = new THREE.TextureLoader().load(moonUrl);
+const normalTexture = new THREE.TextureLoader().load(normalUrl);
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  }),
+);
+scene.add(moon);
 
 function animate() {
   requestAnimationFrame(animate);
