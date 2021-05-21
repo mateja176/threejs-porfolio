@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import spaceUrl from './img/space.jpg';
 import './style.css';
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
@@ -33,6 +34,9 @@ const material = new THREE.MeshStandardMaterial({
   color: 0xff6347,
 });
 const torus = new THREE.Mesh(geometry, material);
+
+const spaceTexture = new THREE.TextureLoader().load(spaceUrl);
+scene.background = spaceTexture;
 
 scene.add(torus);
 
