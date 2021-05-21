@@ -174,3 +174,20 @@ main.innerHTML = /* html */ `
 `;
 
 app.appendChild(main);
+
+function moveCamera() {
+  const { top } = document.body.getBoundingClientRect();
+
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+
+  mateja.rotation.y += 0.01;
+  mateja.rotation.z += 0.01;
+
+  camera.position.z = top * -0.01;
+  camera.position.x = top * -0.0002;
+  camera.rotation.y = top * -0.0002;
+}
+
+document.body.onscroll = moveCamera;
